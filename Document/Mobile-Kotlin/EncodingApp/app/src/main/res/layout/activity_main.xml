@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Mã hóa dữ liệu"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputText"
+        android:hint="Nhập dữ liệu..."
+        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp">
+
+        <RadioButton
+            android:id="@+id/radioUpper"
+            android:text="Chữ hoa"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/radioLower"
+            android:text="Chữ thường"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/radioReverse"
+            android:text="Đảo ngược"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConvert"
+        android:text="Chuyển đổi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:text="Kết quả"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
