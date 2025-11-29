@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: e_store_api
+    env_file:
+      - env.example
+    ports:
+      - '5000:5000'
+    depends_on:
+      - mysql
+    command: >
+      sh -c "npm install &&
+             npm run build &&
+             npm run migration:run &&
+             npm run start:prod"
+    volumes:
+      - .:/usr/src/app
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: e_store_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: e_store_db
+      MYSQL_USER: estore
+      MYSQL_PASSWORD: estore123
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: e_store_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: 123456
+    ports:
+      - '8080:80'
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
